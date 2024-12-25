@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>格鬥遊戲</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        #gameCanvas {
+            border: 2px solid black;
+        }
+
+        .instructions {
+            color: white;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            font-family: Arial, sans-serif;
+            width: 800px;
+        }
+
+        .player-controls {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .player-section {
+            flex: 1;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #333;
+        }
+        
+        .effect {
+            position: absolute;
+            pointer-events: none;
+            animation: fadeOut 0.5s forwards;
+        }
+        
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: scale(1.5);
+            }
+        }
+
+        #preloadImages {
+            display: none;
+            max-width: 30px;
+        }
+
+        #preloadImages img {
+            width: 30px;
+            height: auto;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="instructions">
+            <div class="player-controls">
+                <div class="player-section">
+                    <h3>玩家一 控制：</h3>
+                    <ul>
+                        <li>移動：A/D</li>
+                        <li>跳躍：W</li>
+                        <li>攻擊：F</li>
+                        <li>必殺技：R</li>
+                    </ul>
+                </div>
+                <div class="player-section">
+                    <h3>玩家二 控制：</h3>
+                    <ul>
+                        <li>移動：←/→</li>
+                        <li>跳躍：↑</li>
+                        <li>攻擊：/</li>
+                        <li>必殺技：.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <canvas id="gameCanvas" width="800" height="400"></canvas>
+        
+        <div id="preloadImages">
+            <img id="player1Walk" src="role/player1/walk.png" />
+            <img id="player1Attack" src="role/player1/attack.png" />
+            <img id="player1Jump" src="role/player1/jump.png" />
+            
+            <img id="player2Walk" src="role/player2/walk.png" />
+            <img id="player2Attack" src="role/player2/attack.png" />
+            <img id="player2Jump" src="role/player2/jump.png" />
+            
+            <img id="backgroundImage" src="role/background/BG.png" />
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html> 
